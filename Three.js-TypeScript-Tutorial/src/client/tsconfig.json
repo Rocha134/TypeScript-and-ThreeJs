@@ -1,0 +1,7 @@
+{
+    "compilerOptions": {
+        "moduleResolution": "node", //Library files are resolved using Node.js module resolution strategy
+        "strict": true //Enable all strict type-checking options
+    },
+    "include": ["**/*.ts"] //Include all .ts files
+}
