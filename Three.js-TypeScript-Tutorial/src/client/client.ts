@@ -8,6 +8,9 @@ import Stats from 'three/examples/jsm/libs/stats.module.js'
 import { GUI } from 'dat.gui'
 
 const scene = new THREE.Scene()
+//Add an axes helper to the scene
+const axesHelper = new THREE.AxesHelper(5)
+scene.add(axesHelper)
 
 const camera = new THREE.PerspectiveCamera(
     75,
