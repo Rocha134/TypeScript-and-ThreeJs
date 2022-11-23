@@ -2,6 +2,8 @@
 import * as THREE from 'three'
 //We import OrbitControls from three.js
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
+//We import the stats.js library
+import Stats from 'three/examples/jsm/libs/stats.module.js'
 
 const scene = new THREE.Scene()
 
@@ -15,10 +17,10 @@ camera.position.z = 2
 
 const renderer = new THREE.WebGLRenderer()
 renderer.setSize(window.innerWidth, window.innerHeight)
-document.body.appendChild(renderer.domElement)
+document.body.appendChild(renderer.domElement) //Add the renderer to the body of the html
 
 const controls = new OrbitControls(camera, renderer.domElement) //OrbitControls
-controls.addEventListener('change', render) // use if there is no animation loop
+controls.addEventListener('change', render) // use if there is no animation loop. The first parameter is the event type, the second is the callback function.
 
 const geometry = new THREE.BoxGeometry()
 const material = new THREE.MeshBasicMaterial({
@@ -39,6 +41,9 @@ function onWindowResize() {
     render()
 }
 
+const stats = Stats() //Stats
+document.body.appendChild(stats.dom) //Add the stats to the body of the html
+
 function animate() {
     requestAnimationFrame(animate)
 
@@ -50,6 +55,7 @@ function animate() {
     // }, 1000)
     
     render()
+    stats.update()
 }
 
 function render() {
